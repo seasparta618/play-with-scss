@@ -1,0 +1,17 @@
+{
+  "name": "play-with-scss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "sass src/components/:dist/components/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.70.0",
+    "typescript": "^5.3.3"
+  }
+}
