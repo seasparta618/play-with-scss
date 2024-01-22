@@ -1,6 +1,6 @@
 import './dna-supercoil-loader.scss';
 
-const DNA_PAIR_NUMBER=100;
+const DNA_PAIR_NUMBER=45;
 
 const buildDNASupercoilLoader = (): HTMLElement => {
     const dnaSupercoilLoader = document.createElement('div');
