@@ -1,3 +1,6 @@
+
+$point-number: 36;
+
 .dnaSupercoilLoader {
     width: 300px;
     height: 300px;
@@ -5,3 +8,13 @@
     border: 1px solid black;
     border-radius: 50%;
 }
+
+.dnaPairContainer {
+    height: 20px;
+    width: 10px;
+    border: 1px solid red;
+}
+
+// @for $point in $point-number {
+
+// }
