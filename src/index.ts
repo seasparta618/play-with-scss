@@ -1,4 +1,5 @@
 import './index.scss';
+import buildDNASupercoilLoader from './components/dna-supercoil-loader/dnaSupercoilLoader';
 
 document.addEventListener('DOMContentLoaded', () => {
     const app = document.getElementById('app');
@@ -14,14 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const componentListContainer = document.createElement('div');
     const componentList = document.createElement('ul');
-    {
-        const dnaSupercoilLoaderButton = document.createElement('button');
-        dnaSupercoilLoaderButton.innerHTML = 'dna supercoil loader';
-        const dnaSupercoilLoaderLi = document.createElement('li');
-        dnaSupercoilLoaderLi.appendChild(dnaSupercoilLoaderButton);
-        
-        componentList.appendChild(dnaSupercoilLoaderLi);
-    }
+    componentList.id = 'componentList';
 
     componentListContainer.appendChild(componentList);
     app.append(componentListContainer);
@@ -30,5 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
     showGround.className = 'showGround';
     showGround.id = 'showGround';
     app.appendChild(showGround);
+    const dnaSupercoilLoader = buildDNASupercoilLoader();
+    if (dnaSupercoilLoader){
+        const dnaSupercoilLoaderButton = document.createElement('button');
+        const onButtonClick = ():void => {
+            showGround.replaceChildren();
+            showGround.appendChild(dnaSupercoilLoader);
+        }
+        dnaSupercoilLoaderButton.onclick = onButtonClick;
+        dnaSupercoilLoaderButton.innerHTML = 'dna supercoil loader';
+        const dnaSupercoilLoaderLi = document.createElement('li');
+        dnaSupercoilLoaderLi.appendChild(dnaSupercoilLoaderButton);
+        componentList.appendChild(dnaSupercoilLoaderLi);
+    }
+
 }
 );
