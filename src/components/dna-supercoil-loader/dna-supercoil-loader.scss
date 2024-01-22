@@ -23,6 +23,8 @@ $rotate-gap: math.div(360deg, $dna-element-number);
     margin-left: math.div(-$ball-size, 2);
     margin-right: math.div(-$ball-size, 2);
     transform-origin: center calc(math.div($container-size, 2) + math.div($ball-size, 2));
+    perspective: 70px;
+    transform-style: preserve-3d;
 
     @for $i from 1 through $dna-element-number {
         &:nth-child(#{$i}) {
@@ -41,13 +43,35 @@ $rotate-gap: math.div(360deg, $dna-element-number);
         border-radius: 50%;
     }
 
-    &::before{
-        top: 100%;
+    &::before {
+        top: -100%;
         background-color: black;
+        animation: rotate-black 2s linear infinite;
+
+        @keyframes rotate-black {
+            0% {
+                animation-timing-function: ease-in;
+            }
+
+            25% {
+                transform: translate3d(0, 100%, $ball-size );
+                animation-timing-function: ease-out;
+            }
+
+            50% {
+                transform: translate3d(0, 200%, 0);
+                animation-timing-function: ease-in;
+            }
+
+            75% {
+                transform: translate3d(0, 100%, -$ball-size);
+                animation-timing-function: ease-out;
+            }
+        }
     }
 
-    &::after{
-        top: -100%;
+    &::after {
+        top: 100%;
         background-color: white;
     }
 
