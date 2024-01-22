@@ -1,15 +1,15 @@
 @use 'sass:math';
 
-$dna-element-number: 36;
+$dna-element-number: 45;
 $ball-size: 10px;
 $container-size: 150px;
 $rotate-gap: math.div(360deg, $dna-element-number);
+$duration: 2s;
 
 .dnaSupercoilLoader {
     width: $container-size;
     height: $container-size;
     margin: 50px auto;
-    border: 1px solid black;
     border-radius: 50%;
     position: relative;
 }
@@ -29,6 +29,11 @@ $rotate-gap: math.div(360deg, $dna-element-number);
     @for $i from 1 through $dna-element-number {
         &:nth-child(#{$i}) {
             transform: rotate(calc($rotate-gap * calc($i - 1)));
+
+            &::before,
+            &::after {
+                animation-delay: math.div(-$duration, $dna-element-number) * ($i - 1) * 7;
+            }
         }
     }
 
@@ -45,10 +50,10 @@ $rotate-gap: math.div(360deg, $dna-element-number);
 
     &::before {
         top: -100%;
-        background-color: black;
-        animation: rotate-black 2s linear infinite;
+        background-color: grey;
+        animation: rotate-before $duration infinite;
 
-        @keyframes rotate-black {
+        @keyframes rotate-before {
             0% {
                 animation-timing-function: ease-in;
             }
@@ -72,12 +77,28 @@ $rotate-gap: math.div(360deg, $dna-element-number);
 
     &::after {
         top: 100%;
-        background-color: white;
+        background-color: purple;
+        animation: rotate-after $duration infinite;
+
+        @keyframes rotate-after {
+            0% {
+                animation-timing-function: ease-in;
+            }
+
+            25% {
+                transform: translate3d(0, -100%, -$ball-size );
+                animation-timing-function: ease-out;
+            }
+
+            50% {
+                transform: translate3d(0, -200%, 0);
+                animation-timing-function: ease-in;
+            }
+
+            75% {
+                transform: translate3d(0, -100%, $ball-size);
+                animation-timing-function: ease-out;
+            }
+        }
     }
-
-
 }
-
-// @for $point in $point-number {
-
-// }
