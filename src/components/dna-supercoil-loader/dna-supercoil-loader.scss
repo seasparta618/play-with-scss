@@ -23,7 +23,6 @@ $rotate-gap: math.div(360deg, $dna-element-number);
     margin-left: math.div(-$ball-size, 2);
     margin-right: math.div(-$ball-size, 2);
     transform-origin: center calc(math.div($container-size, 2) + math.div($ball-size, 2));
-    background-color: red;
 
     @for $i from 1 through $dna-element-number {
         &:nth-child(#{$i}) {
