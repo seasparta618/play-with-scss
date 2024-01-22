@@ -1,9 +1,10 @@
-
 @use 'sass:math';
 
-$point-number: 36;
+$dna-element-number: 36;
 $ball-size: 10px;
 $container-size: 150px;
+$rotate-gap: math.div(360deg, $dna-element-number);
+
 .dnaSupercoilLoader {
     width: $container-size;
     height: $container-size;
@@ -21,16 +22,37 @@ $container-size: 150px;
     width: $ball-size;
     margin-left: math.div(-$ball-size, 2);
     margin-right: math.div(-$ball-size, 2);
-    transform-origin: center calc(math.div($container-size,2) + math.div($ball-size, 2));
+    transform-origin: center calc(math.div($container-size, 2) + math.div($ball-size, 2));
     background-color: red;
 
-    &:nth-child(1){
-        transform: rotate(0deg);
+    @for $i from 1 through $dna-element-number {
+        &:nth-child(#{$i}) {
+            transform: rotate(calc($rotate-gap * calc($i - 1)));
+        }
     }
 
-    &:nth-child(2){
-        transform: rotate(15deg);
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: $ball-size;
+        height: $ball-size;
+        border-radius: 50%;
     }
+
+    &::before{
+        top: 100%;
+        background-color: black;
+    }
+
+    &::after{
+        top: -100%;
+        background-color: yellow;
+    }
+
+
 }
 
 // @for $point in $point-number {
