@@ -5,4 +5,11 @@ capture anything if you like
 component list:
 
 - DNA supercoil loader: 
-    <img src="[https://private-user-images.githubusercontent.com/25102001/298588335-d5377730-48e9-4500-b72a-a14f9f0d2d2c.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDU5Mjc5ODgsIm5iZiI6MTcwNTkyNzY4OCwicGF0aCI6Ii8yNTEwMjAwMS8yOTg1ODgzMzUtZDUzNzc3MzAtNDhlOS00NTAwLWI3MmEtYTE0ZjlmMGQyZDJjLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAxMjIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMTIyVDEyNDgwOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTAxNzI0OGJhZGE3ODE3NWEzNjgxODQ2ZmNlYTIwYmVlZWI3YjU1MjQzZGU4ZWI0NTZlMWJhNjgwNjE0YTlkNzMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.WZKR5QPectcrb3k1gGAC-lMB1ZTaNxMzgrraLXnsIOg](https://github.com/seasparta618/play-with-scss/blob/master/public/dna-supercoil-loader.gif)https://github.com/seasparta618/play-with-scss/blob/master/public/dna-supercoil-loader.gif" />
+
+
+    <img alt="dna-supercoil-loader.gif" src="https://github.com/seasparta618/play-with-scss/blob/master/public/dna-supercoil-loader.gif?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+
+- Progressive highlight border button:
+
+
+    <img alt="moving-border-button.gif" src="https://github.com/seasparta618/play-with-scss/blob/master/public/moving-border-button.gif?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
