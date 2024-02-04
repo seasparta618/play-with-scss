@@ -7,98 +7,101 @@ $rotate-gap: math.div(360deg, $dna-element-number);
 $duration: 2s;
 
 .dnaSupercoilLoader {
-    width: $container-size;
-    height: $container-size;
-    margin: 50px auto;
-    border-radius: 50%;
-    position: relative;
+  width: $container-size;
+  height: $container-size;
+  margin: 50px auto;
+  border-radius: 50%;
+  position: relative;
 }
 
 .dnaPairContainer {
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  height: $ball-size;
+  width: $ball-size;
+  margin-left: math.div(-$ball-size, 2);
+  margin-right: math.div(-$ball-size, 2);
+  transform-origin: center
+    calc(math.div($container-size, 2) + math.div($ball-size, 2));
+  perspective: 70px;
+  transform-style: preserve-3d;
+
+  @for $i from 1 through $dna-element-number {
+    &:nth-child(#{$i}) {
+      transform: rotate(calc($rotate-gap * calc($i - 1)));
+
+      &::before,
+      &::after {
+        animation-delay: math.div(-$duration, $dna-element-number) *
+          ($i - 1) *
+          7;
+      }
+    }
+  }
+
+  &::before,
+  &::after {
+    content: '';
     position: absolute;
-    left: 50%;
-    top: 0px;
-    height: $ball-size;
+    left: 0;
+    right: 0;
     width: $ball-size;
-    margin-left: math.div(-$ball-size, 2);
-    margin-right: math.div(-$ball-size, 2);
-    transform-origin: center calc(math.div($container-size, 2) + math.div($ball-size, 2));
-    perspective: 70px;
-    transform-style: preserve-3d;
+    height: $ball-size;
+    border-radius: 50%;
+  }
 
-    @for $i from 1 through $dna-element-number {
-        &:nth-child(#{$i}) {
-            transform: rotate(calc($rotate-gap * calc($i - 1)));
+  &::before {
+    top: -100%;
+    background-color: grey;
+    animation: rotate-before $duration infinite;
 
-            &::before,
-            &::after {
-                animation-delay: math.div(-$duration, $dna-element-number) * ($i - 1) * 7;
-            }
-        }
+    @keyframes rotate-before {
+      0% {
+        animation-timing-function: ease-in;
+      }
+
+      25% {
+        transform: translate3d(0, 100%, $ball-size);
+        animation-timing-function: ease-out;
+      }
+
+      50% {
+        transform: translate3d(0, 200%, 0);
+        animation-timing-function: ease-in;
+      }
+
+      75% {
+        transform: translate3d(0, 100%, -$ball-size);
+        animation-timing-function: ease-out;
+      }
     }
+  }
 
-    &::before,
-    &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        right: 0;
-        width: $ball-size;
-        height: $ball-size;
-        border-radius: 50%;
+  &::after {
+    top: 100%;
+    background-color: purple;
+    animation: rotate-after $duration infinite;
+
+    @keyframes rotate-after {
+      0% {
+        animation-timing-function: ease-in;
+      }
+
+      25% {
+        transform: translate3d(0, -100%, -$ball-size);
+        animation-timing-function: ease-out;
+      }
+
+      50% {
+        transform: translate3d(0, -200%, 0);
+        animation-timing-function: ease-in;
+      }
+
+      75% {
+        transform: translate3d(0, -100%, $ball-size);
+        animation-timing-function: ease-out;
+      }
     }
-
-    &::before {
-        top: -100%;
-        background-color: grey;
-        animation: rotate-before $duration infinite;
-
-        @keyframes rotate-before {
-            0% {
-                animation-timing-function: ease-in;
-            }
-
-            25% {
-                transform: translate3d(0, 100%, $ball-size );
-                animation-timing-function: ease-out;
-            }
-
-            50% {
-                transform: translate3d(0, 200%, 0);
-                animation-timing-function: ease-in;
-            }
-
-            75% {
-                transform: translate3d(0, 100%, -$ball-size);
-                animation-timing-function: ease-out;
-            }
-        }
-    }
-
-    &::after {
-        top: 100%;
-        background-color: purple;
-        animation: rotate-after $duration infinite;
-
-        @keyframes rotate-after {
-            0% {
-                animation-timing-function: ease-in;
-            }
-
-            25% {
-                transform: translate3d(0, -100%, -$ball-size );
-                animation-timing-function: ease-out;
-            }
-
-            50% {
-                transform: translate3d(0, -200%, 0);
-                animation-timing-function: ease-in;
-            }
-
-            75% {
-                transform: translate3d(0, -100%, $ball-size);
-                animation-timing-function: ease-out;
-            }
-        }
-    }
+  }
 }
