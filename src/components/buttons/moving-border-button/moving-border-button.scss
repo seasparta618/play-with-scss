@@ -1,0 +1,111 @@
+@use 'sass:color';
+
+.movingBorderButton-container {
+    width: auto;
+    height: auto;
+    border: 3px solid transparent;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+
+    &:hover {
+        border: none;
+        padding: 3px;
+    }
+}
+
+.movingBorderButton {
+    height: 42px;
+    width: fit-content;
+    padding: 0 8px;
+    display: flex;
+    border-radius: 6px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    background-color: purple;
+    font-family: Arial;
+    font-weight: 600;
+    font-size: 16px;
+
+    &:hover {
+        position: relative;
+        color: darken($color: grey, $amount: 30%);
+        background-color: transparent;
+        background-image: linear-gradient(to right, lighten($color: purple, $amount: 15%) 25%, darken($color: purple, $amount: 15%) 50%, lighten($color: purple, $amount: 15%) 75%);
+        background-size: 400% 100%;
+        animation: shine 2s linear infinite;
+
+        &::after {
+            content: '';
+            position: absolute;
+            border-radius: 6px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(to right, transparent 25%, purple 50%, transparent 75%);
+            background-size: 400% 100%;
+            animation: shine 2s linear infinite;
+        }
+
+        @keyframes shine {
+            from {
+                background-position: 100% 0;
+            }
+
+            to {
+                background-position: -100% 0;
+            }
+        }
+    }
+}
+
+.movingBorderButton-borderProvider {
+    top: 50%;
+    left: 50%;
+    background-color: yellow;
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    z-index: -1;
+    transform-origin: 0 0;
+    animation: rotate 4s linear infinite;
+
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+
+        0% {
+            transform: rotate(0deg);
+            background-color: yellow;
+        }
+
+        25% {
+            transform: rotate(90deg);
+            background-color: green;
+        }
+
+        50% {
+            transform: rotate(180deg);
+            background-color: blue;
+        }
+
+        75% {
+            transform: rotate(270deg);
+            background-color: orange;
+        }
+
+        100% {
+            transform: rotate(360deg);
+            background-color: yellow;
+        }
+    }
+}

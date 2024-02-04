@@ -1,5 +1,6 @@
 import './index.scss';
 import buildDNASupercoilLoader from './components/dna-supercoil-loader/dnaSupercoilLoader';
+import buildCyberPunkButton from './components/buttons/moving-border-button/MovingBorderButton';
 
 document.addEventListener('DOMContentLoaded', () => {
     const app = document.getElementById('app');
@@ -36,6 +37,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const dnaSupercoilLoaderLi = document.createElement('li');
         dnaSupercoilLoaderLi.appendChild(dnaSupercoilLoaderButton);
         componentList.appendChild(dnaSupercoilLoaderLi);
+    }
+    const progressiveButton = buildCyberPunkButton();
+    if (progressiveButton){
+        const progressiveButtonToggle = document.createElement('button');
+        const onButtonClick = ():void => {
+            showGround.replaceChildren();
+            showGround.appendChild(progressiveButton);
+        }
+        progressiveButtonToggle.onclick = onButtonClick;
+        progressiveButtonToggle.innerHTML = 'progressive button';
+        const progressiveButtonLi = document.createElement('li');
+        progressiveButtonLi.appendChild(progressiveButtonToggle);
+        componentList.appendChild(progressiveButtonLi);
     }
 
 }
