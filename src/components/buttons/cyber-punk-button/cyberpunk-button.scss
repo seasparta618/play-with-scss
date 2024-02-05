@@ -20,8 +20,10 @@
 }
 
 
-$translate-right: 5px, 0px;
+$transform-right: 5px, 0px;
+$transform-double-right: 10px, 0px;
 $transform-left: -5px, 0px;
+$transform-double-left: -10px, 0px;
 
 
 
@@ -32,9 +34,15 @@ $transform-left: -5px, 0px;
 
     --slice-bottom: inset(0 0 80% 0);
     --slice-top: inset(80% 0 0 0);
+
+    --slice-1: inset(80% -6px 0 0);
+    --slice-2: inset(50% -6px 0 0);
+    --slice-3: inset(10% -6px 85% 0);
+    --slice-4: inset(40% -6px 43% 0);
+    --slice-5: inset(45% -6px 45% 0);
     content: 'Now loading...';
+    letter-spacing: 3px;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     position: absolute;
@@ -42,5 +50,60 @@ $transform-left: -5px, 0px;
     right: 0;
     bottom: 0;
     top: 0;
-    background: linear-gradient(45deg, transparent 3%, purple 3%, purple 5%, red 5%);
+    border: 0;
+    box-shadow: 6px 0 0 rgb(80, 228, 61);
+}
+
+.cyberpunkButton:hover::after{
+    background: linear-gradient(45deg, transparent 3%, purple 3%, purple 7%, #ff013c 7%);
+    animation: 1s cyberpunking infinite;
+    animation-timing-function: steps(1, end) ;
+}
+
+@keyframes cyberpunking{
+    0% {
+        clip-path: var(--slice-text-middle);
+        transform: translate($transform-left);
+        color: yellow;
+        text-shadow: 3px 0 3px lightblue;
+    }
+    10%{
+        clip-path: var(--slice-bottom);
+        transform: translate($transform-double-right);
+        box-shadow: 10px 0 0 orange;
+    }
+    20%{
+        clip-path: var(--slice-text-top);
+        transform: translate($transform-right);
+        color: grey;
+        text-shadow: -3px 0 -3px lightgray;
+    }
+    30%{
+        clip-path: var(--slice-1);
+        transform: translate($transform-left);
+    }
+    40%{
+        clip-path: var(--slice-text-top);
+        transform: translate($transform-double-right)
+    }
+    50%{
+        clip-path: var(--slice-2);
+        transform: translate($transform-double-left);
+    }
+    60%{
+        clip-path: var(--slice-text-bottom);
+        transform: translate($transform-right);
+    }
+    70%{
+        clip-path: var(--slice-top);
+        transform: translate($transform-double-left)
+    }
+    80%{
+        clip-path: var(--slice-3);
+        transform: translate($transform-right);
+    }
+    90%{
+        clip-path: var(--slice-bottom);
+        transform: translate($transform-double-right);
+    }
 }
