@@ -1,4 +1,11 @@
 @use 'sass:color';
+
+$punk-yellow: #fcee09;
+$punk-blue: #00f0ff;
+$punk-black: #050a0e;
+$punk-red: #ff003c;
+$punk-grey: grey;
+
 .cyberpunkButton {
   height: 80px;
   width: auto;
@@ -7,14 +14,14 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: $punk-black;
   letter-spacing: 3px;
-  border: 0;
+  border: none;
   font-weight: bold;
   font-family: Tomorrow, sans-serif;
   font-size: 24px;
-  background: linear-gradient(45deg, transparent 7%, red 5%);
-  box-shadow: 8px 0px 0px rgb(80, 228, 61);
+  background: linear-gradient(45deg, transparent 7%, $punk-yellow 5%);
+  box-shadow: 8px 0px 0px $punk-blue;
   cursor: pointer;
   outline: transparent;
   position: relative;
@@ -24,8 +31,10 @@ $transform-right: 5px, 0px;
 $transform-double-right: 10px, 0px;
 $transform-left: -5px, 0px;
 $transform-double-left: -10px, 0px;
+$transform-triple-left: -15px, 0px;
+$transform-triple-right: 15px, 0px;
 
-.cyberpunkButton::after {
+.cyberpunkButton-punker {
   --slice-text-middle: inset(43% 0 43% 0);
   --slice-text-left: inset(45% 0 0 0);
   --slice-text-bottom: inset(0 0 45% 0);
@@ -38,7 +47,6 @@ $transform-double-left: -10px, 0px;
   --slice-3: inset(10% -6px 85% 0);
   --slice-4: inset(40% -6px 43% 0);
   --slice-5: inset(45% -6px 45% 0);
-  content: 'Now loading...';
   letter-spacing: 3px;
   display: flex;
   align-items: center;
@@ -49,64 +57,76 @@ $transform-double-left: -10px, 0px;
   bottom: 0;
   top: 0;
   border: 0;
-  box-shadow: 6px 0 0 rgb(80, 228, 61);
+  box-shadow: 6px 0 0 $punk-blue;
 }
 
-.cyberpunkButton:hover::after {
-  background: linear-gradient(
-    45deg,
-    transparent 3%,
-    purple 3%,
-    purple 7%,
-    #ff013c 7%
-  );
-  animation: 1s cyberpunking infinite;
-  animation-timing-function: steps(1, end);
+.cyberpunkButton:hover {
+  .cyberpunkButton-punker {
+    background: linear-gradient(
+      45deg,
+      transparent 3%,
+      $punk-red 3%,
+      $punk-red 7%,
+      $punk-yellow 7%
+    );
+    animation: 1s cyberpunking infinite;
+    animation-timing-function: steps(1, end);
+  }
 }
 
 @keyframes cyberpunking {
   0% {
     clip-path: var(--slice-text-middle);
     transform: translate($transform-left);
-    color: yellow;
-    text-shadow: 3px 0 3px lightblue;
+    color: darken($color: $punk-yellow, $amount: 25%);
+    text-shadow: 3px 0 3px lighten($color: $punk-blue, $amount: 15%);
   }
+
   10% {
     clip-path: var(--slice-bottom);
     transform: translate($transform-double-right);
-    box-shadow: 10px 0 0 orange;
+    box-shadow: 10px 0 0 lighten($punk-blue, 25%);
   }
+
   20% {
     clip-path: var(--slice-text-top);
     transform: translate($transform-right);
-    color: grey;
-    text-shadow: -3px 0 -3px lightgray;
+    color: $punk-grey;
+    text-shadow: -3px 0 -3px lighten($color: $punk-grey, $amount: 35%);
   }
+
   30% {
     clip-path: var(--slice-1);
     transform: translate($transform-left);
   }
+
   40% {
     clip-path: var(--slice-text-top);
-    color: lightblue;
-    transform: translate($transform-double-right);
+    color: lighten($color: $punk-black, $amount: 50%);
+    transform: translate($transform-triple-right);
   }
+
   50% {
     clip-path: var(--slice-2);
-    transform: translate($transform-double-left);
+    transform: translate($transform-triple-left);
   }
+
   60% {
     clip-path: var(--slice-text-bottom);
-    transform: translate($transform-right);
+    transform: translate($transform-triple-right);
   }
+
   70% {
     clip-path: var(--slice-top);
     transform: translate($transform-double-left);
   }
+
   80% {
     clip-path: var(--slice-3);
+    $color: lighten($punk-red, 15%);
     transform: translate($transform-right);
   }
+
   90% {
     clip-path: var(--slice-bottom);
     transform: translate($transform-double-right);

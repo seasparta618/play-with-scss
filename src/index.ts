@@ -1,7 +1,7 @@
 import './index.scss'
 import buildDNASupercoilLoader from './components/dna-supercoil-loader/dnaSupercoilLoader'
 import buildMovingBorderButton from './components/buttons/moving-border-button/MovingBorderButton'
-import buildCyberpunkButton from './components/buttons/cyber-punk-button/cyberpunkButton';
+import buildCyberpunkButton from './components/buttons/cyber-punk-button/cyberpunkButton'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = document.getElementById('app')
@@ -54,18 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
     componentToggleList.appendChild(progressiveButtonLi)
   }
 
-  const cyberPunkButton = buildCyberpunkButton();
+  const cyberPunkButton = buildCyberpunkButton()
   if (cyberPunkButton) {
     const cyberPunkButtonToggle = document.createElement('button')
-    const onButtonClick = () : void => {
-      showGround.replaceChildren();
-      showGround.appendChild(cyberPunkButton);
+    const onButtonClick = (): void => {
+      showGround.replaceChildren()
+      showGround.appendChild(cyberPunkButton)
     }
 
-    cyberPunkButtonToggle.onclick = onButtonClick;
+    cyberPunkButtonToggle.onclick = onButtonClick
     cyberPunkButtonToggle.innerHTML = 'CyberPunk Button'
-    const cyberPunkButtonLi = document.createElement('li');
-    cyberPunkButtonLi.appendChild(cyberPunkButtonToggle);
-    componentToggleList.appendChild(cyberPunkButtonLi);
+    const cyberPunkButtonLi = document.createElement('li')
+    cyberPunkButtonLi.appendChild(cyberPunkButtonToggle)
+    componentToggleList.appendChild(cyberPunkButtonLi)
   }
 })

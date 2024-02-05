@@ -1,0 +1,106 @@
+@use 'sass:color';
+
+.progressiveSurroundButton {
+  width: auto;
+  height: auto;
+  border: 3px solid transparent;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+
+  &:hover {
+    border: none;
+    padding: 3px;
+  }
+}
+
+.progressiveSurroundButton-content {
+  height: 42px;
+  width: fit-content;
+  padding: 0 8px;
+  display: flex;
+  border-radius: 6px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  background-color: purple;
+  font-family: Arial;
+  font-weight: 600;
+  font-size: 16px;
+
+  &:hover {
+    position: relative;
+    color: lighten($color: Black, $amount: 10%);
+    background-size: 400% 100%;
+    animation: shine 2s linear infinite;
+
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: 6px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: linear-gradient(
+        to right,
+        transparent,
+        purple,
+        red,
+        blue,
+        purple,
+        transparent
+      );
+      background-size: 400% 100%;
+      animation: shine 2s linear infinite;
+    }
+
+    @keyframes shine {
+      from {
+        background-position: 100% 0;
+      }
+
+      to {
+        background-position: -100% 0;
+      }
+    }
+  }
+}
+
+.progressiveSurroundButton-provider {
+  background-color: green;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  animation: 4s rotate infinite;
+
+  @keyframes rotate {
+    0% {
+      top: -20px;
+      left: -20px;
+    }
+
+    25% {
+      top: -20px;
+      left: calc(100% - 20px);
+    }
+
+    50% {
+      top: calc(100% - 20px);
+      left: calc(100% - 20px);
+    }
+
+    75% {
+      top: calc(100% - 20px);
+      left: -20px;
+    }
+
+    100% {
+      top: -20px;
+      left: -20px;
+    }
+  }
+}
