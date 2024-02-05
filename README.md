@@ -1,6 +1,12 @@
 <h>Some interesting components built with Scss and Typescript</h>
 
-capture anything if you like
+
+You can either run `npm run storybook` and select from story book
+Or you can run `npm run start` to select from a simple, no css board.
+
+I am trying to build some fantastic css effect.
+
+Capture anything if you like
 
 component list:
 
