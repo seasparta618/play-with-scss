@@ -23,3 +23,7 @@ component list:
 - Cyber punk button：
 
     <img alt="cyber-punk-button.gif" src="https://github.com/seasparta618/play-with-scss/blob/master/public/cyber-punk-button.gif?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+
+- Water wave progressive bar
+
+    <img alt="Peek 2024-02-08 21-48.gif" src="https://github.com/seasparta618/play-with-scss/blob/master/public/Peek%202024-02-08%2021-48.gif?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
