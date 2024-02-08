@@ -1,0 +1,48 @@
+.cyberpunkProgressiveBar-demoContainer{
+    background-color: grey;
+    height: 200px;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cyberpunkProgressiveBar {
+    display: flex;
+    width: 30%;
+    height: 30px;
+    background-color: #333; /* 暗色背景 */
+    padding: 5px;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.barSegment {
+    width: 5%;
+    background-color: #555; /* 默认柱体颜色 */
+    margin: 0 2px;
+    height: 100%;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.barSegment.rush{
+    background-color: #555;
+    animation: rushing 0.5s infinite;
+}
+
+@keyframes rushing{
+    50% {background-color: silver;}
+}
+
+
+.barSegment.active {
+    background-color: #0f0; /* 激活状态颜色 */
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { background-color: #ff0; }
+}
