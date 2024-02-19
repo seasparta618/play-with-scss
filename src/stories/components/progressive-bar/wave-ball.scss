@@ -1,36 +1,40 @@
-.waveBall{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    background-color: transparent;
-    border-radius: 50%;
-    height: 100px;
-    width: 100px;
-    box-sizing: border-box;
-    border: 2px solid green;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+.waveBall {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: transparent;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  box-sizing: border-box;
+  border: 2px solid green;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.waveBall-percentage{
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 30px;
-    font-weight: 600;
+.waveBall-percentage {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 30px;
+  font-weight: 600;
 }
 
-.waveBall-provider{
-    position: absolute;
-    border-radius: 75px;
-    height: 200px;
-    width: 200px;
-    background-color: lightblue;
-    top: 100px;
-    animation: 4s rotate infinite linear;
-    z-index: -1;
+.waveBall-provider {
+  position: absolute;
+  border-radius: 75px;
+  height: 200px;
+  width: 200px;
+  background-color: lightblue;
+  top: 100px;
+  animation: 4s rotate infinite linear;
+  z-index: -1;
 }
 
 @keyframes rotate {
-    from {transform: rotate(0deg);}
-    to {transform: rotate(360deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

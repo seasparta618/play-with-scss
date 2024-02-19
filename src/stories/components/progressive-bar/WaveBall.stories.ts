@@ -14,8 +14,8 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     percentage: {
-      control: {type: 'range', min: 0, max: 100, step: 3},
-      description: 'Percentage of progress'
+      control: { type: 'range', min: 0, max: 100, step: 3 },
+      description: 'Percentage of progress',
     },
   },
 } satisfies Meta<typeof BuildWaveBall>
