@@ -1,0 +1,26 @@
+@use 'sass:color';
+.blendedText-container {
+  filter: contrast(5);
+  background-color: black;
+  display: flex;
+  flex-grow: 1;
+}
+.blendedText {
+  --letter-spacing: 15px;
+  font-size: 40px;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 800;
+  animation: expand 3s forwards infinite;
+
+  @keyframes expand {
+    from {
+      letter-spacing: calc(0px - var(--letter-spacing));
+      filter: blur(4px);
+    }
+    to {
+      letter-spacing: var(--letter-spacing);
+      filter: blur(0px);
+    }
+  }
+}
