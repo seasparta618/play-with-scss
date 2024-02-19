@@ -31,3 +31,7 @@ component list:
 - Three D text
 
     <img alt="three-D-text.png" src="https://github.com/seasparta618/play-with-scss/blob/master/public/three-D-text.png?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+
+- Blended text
+
+    <img alt="blended-text.gif" src="https://github.com/seasparta618/play-with-scss/blob/master/public/blended-text.gif?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
