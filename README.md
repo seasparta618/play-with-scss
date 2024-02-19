@@ -27,3 +27,7 @@ component list:
 - Water wave progressive bar
 
     <img alt="Peek 2024-02-08 21-48.gif" src="https://github.com/seasparta618/play-with-scss/blob/master/public/Peek%202024-02-08%2021-48.gif?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+
+- Three D text
+
+    <img alt="three-D-text.png" src="https://github.com/seasparta618/play-with-scss/blob/master/public/three-D-text.png?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
