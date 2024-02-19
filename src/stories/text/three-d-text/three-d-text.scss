@@ -1,0 +1,21 @@
+@use 'sass:color';
+
+$text-color: darken(
+  $color: darkgrey,
+  $amount: 40%,
+);
+$shadow-color: lighten(
+  $color: darkgrey,
+  $amount: 10%,
+);
+
+.threeDText {
+  font-size: 30px;
+  color: $text-color;
+  text-shadow:
+    -1px 1px $shadow-color,
+    -2px 2px $shadow-color,
+    -3px 3px $shadow-color,
+    -4px 4px $shadow-color,
+    -5px 5px $shadow-color;
+}
