@@ -1,0 +1,136 @@
+.neonButton {
+  --neon-color: #17c47c;
+  display: inline-block;
+  padding: 12px 12px;
+  font-size: 20px;
+  width: fit-content;
+  box-sizing: border-box;
+  font-family: consolas;
+  position: relative;
+  color: var(--neon-color);
+  text-transform: uppercase;
+  background-color: transparent;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  //overflow: hidden;
+
+  &:hover {
+    --neon-blink-color: #a4d3be;
+    --neon-color: #17c47c;
+    background-color: var(--neon-color);
+    color: #050801;
+    animation: blink 2s infinite linear;
+
+    @keyframes blink {
+      0%,
+      100% {
+        background-color: var(--neon-color);
+        color: #050801;
+        box-shadow:
+          0 0 5px var(--neon-color),
+          0 0 25px var(--neon-color),
+          0 0 50px var(--neon-color),
+          0 0 200px var(--neon-color);
+      }
+      50% {
+        background-color: var(--neon-blink-color);
+        color: #040701;
+        box-shadow:
+          0 0 5px var(--neon-blink-color),
+          0 0 25px var(--neon-blink-color),
+          0 0 50px var(--neon-blink-color),
+          0 0 200px var(--neon-blink-color);
+      }
+    }
+  }
+
+  .neonButton-borderProvider {
+    position: absolute;
+    &:nth-child(1) {
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--neon-color));
+      animation: shimmer-right 2s linear infinite;
+
+      @keyframes shimmer-right {
+        0% {
+          left: -100%;
+        }
+        50% {
+          left: 100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+    }
+    &:nth-child(2) {
+      top: -100%;
+      right: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--neon-color));
+      animation: shimmer-down 2s linear infinite;
+      animation-delay: 0.5s;
+
+      @keyframes shimmer-down {
+        0% {
+          top: -100%;
+        }
+        50%,
+        100% {
+          top: 100%;
+        }
+      }
+    }
+    &:nth-child(3) {
+      bottom: 0;
+      right: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to left, transparent, var(--neon-color));
+      animation: shimmer-left 2s linear infinite;
+      animation-delay: 1s;
+
+      @keyframes shimmer-left {
+        0% {
+          right: -100%;
+        }
+        50%,
+        100% {
+          right: 100%;
+        }
+      }
+    }
+    &:nth-child(4) {
+      bottom: -100%;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to top, transparent, var(--neon-color));
+      animation: shimmer-up 2s linear infinite;
+      animation-delay: 1.5s;
+
+      @keyframes shimmer-up {
+        0% {
+          bottom: -100%;
+        }
+        50%,
+        100% {
+          bottom: 100%;
+        }
+      }
+    }
+  }
+}
+
+.neonButton:hover {
+  .neonButton-borderProvider {
+    display: none;
+  }
+}
